@@ -164,7 +164,7 @@ class App extends Component {
           :
           <span className={clsx('time second', { editing: editing === 'second' })}>{pad(second)}</span>
         </div>
-        {!paused ? <></> : <ul className="tips">
+        {editing == null ? <></> : <ul className="tips">
           <li>
             <button onClick={this.toggleFullScreen}>F</button>
             -
