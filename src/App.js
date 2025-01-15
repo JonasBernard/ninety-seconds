@@ -10,9 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      t: 0,
+      t: 90,
       paused: true,
-      mode: 'stopwatch',
+      mode: 'countdown',
       fullscreen: false,
       adjusting: false,
       editing: null, // minute, second, null
@@ -164,7 +164,7 @@ class App extends Component {
           :
           <span className={clsx('time second', { editing: editing === 'second' })}>{pad(second)}</span>
         </div>
-        <ul className="tips">
+        {paused ? (<>) : (<ul className="tips">
           <li>
             <button onClick={this.toggleFullScreen}>F</button>
             -
@@ -197,7 +197,7 @@ class App extends Component {
             -
             <span className="tip">{paused ? 'start' : 'pause'} timer</span>
           </li>
-        </ul>
+        </ul>)}
       </div>
     );
   }
